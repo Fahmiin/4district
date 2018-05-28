@@ -12,7 +12,8 @@
 */
 
 //Landing page
-Route::view('/', 'main');
+Route::view('/', 'index');
+Route::get('/home', 'MainController@homePage')->name('home');
 
 //Auth
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
