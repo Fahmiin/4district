@@ -36,11 +36,14 @@ $(document).ready(function()
 
 				if(data == 1)
 				{
-					$(bookmark).addClass('white-text');
+					$(bookmark)
+						.addClass('white-text');
 				}
 				else
 				{
-					$(bookmark).removeClass('white-text');
+					$(bookmark)
+						.removeClass('white-text')
+						.addClass('black-text');
 				}
 			}
 		});

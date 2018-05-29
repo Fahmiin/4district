@@ -10,6 +10,16 @@ use Auth;
 
 class BookmarkController extends Controller
 {
+    public function bookmarksPage()
+    {
+        $user = Auth::user();
+        $bookmarks = Bookmark::where('user_id', $user->id)->get();
+
+        return view('bookmarks')
+            ->with('user', $user)
+            ->with('bookmarks', $bookmarks);
+    }
+
     public function createBookmark(Request $request)
     {
     	if($request->ajax())
