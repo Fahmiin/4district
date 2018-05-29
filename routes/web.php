@@ -27,3 +27,6 @@ Route::delete('/post/delete/{id}', 'PostController@deletePost')->name('deletePos
 
 //PROFILE
 Route::get('/profile', 'ProfileController@profilePage')->name('profilePage');
+
+//BOOKMARK
+Route::post('/bookmark', 'BookmarkController@createBookmark')->name('createBookmark');

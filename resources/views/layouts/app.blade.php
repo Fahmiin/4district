@@ -21,6 +21,10 @@
 
 		@yield('content')
 
+        @include('includes._fixed_button')
+
+        <footer></footer>
+
     </body>
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>

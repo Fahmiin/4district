@@ -4,19 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Bookmark extends Model
 {
-    protected $fillable = [
-        'post'
-    ];
-
     public function user()
     {
     	return $this->belongsTo('App\User');
     }
 
-    public function bookmarks()
+    public function post()
     {
-    	return $this->hasMany('App\Bookmark');
+    	return $this->belongsTo('App\Post');
     }
 }

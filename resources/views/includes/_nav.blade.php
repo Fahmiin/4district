@@ -6,12 +6,12 @@
     		</div>
 	        <div class="col s7 hide-on-large-only">
 	        	@auth
-	            <a class="dropdown-trigger right hide-on-large-only" data-target="menuDropdown">{{$user->name}}</a>
+	            <a class="dropdown-trigger right hide-on-large-only waves-effect waves-light" data-target="menuDropdown">{{$user->name}}</a>
 	            @else
-	            <a class="dropdown-trigger right hide-on-large-only" href="#" data-target="dropdown"><i class="material-icons">menu</i></a>
+	            <a class="dropdown-trigger right hide-on-large-only waves-effect waves-light" data-target="dropdown"><i class="material-icons">menu</i></a>
 	            @endauth
 	        </div>
-	        <div class="col m5">
+	        <div class="col m5 hide-on-med-and-down">
 	        	<form action="" method="GET">
 	        		<div class="input-field search">
 	        			<input type="search" class="searchBar" placeholder="Find a user or a post" required>
@@ -21,12 +21,13 @@
 	        <div class="col m4">
 	        	<ul class="right hide-on-med-and-down">
 	            	@auth
-	            	<li><a href="/profile"><i class="material-icons">person</i></a></li>
-	            	<li><a href="#post" class="modal-trigger"><i class="material-icons">create</i></a></li>
-	            	<li><a href="#logout" class="modal-trigger">Logout</a></li>
+	            	<li><a href="/profile" class="waves-effect waves-light"><i class="material-icons right">person</i>{{$user->name}}</a></li>
+	            	<li><a href="#post" class="modal-trigger waves-effect waves-light"><i class="material-icons">create</i></a></li>
+	            	<li><a href="/bookmarks" class="waves-effect waves-light"><i class="material-icons">collections_bookmark</i></a></li>
+	            	<li><a href="#logout" class="modal-trigger waves-effect waves-light">Logout</a></li>
 	            	@else
-	                <li><a class="modal-trigger" href="#login">Login</a></li>
-	                <li><a class="modal-trigger" href="#signup">Signup</a></li>
+	                <li><a class="modal-trigger waves-effect waves-light" href="#login">Login</a></li>
+	                <li><a class="modal-trigger waves-effect waves-light" href="#signup">Signup</a></li>
 	                @endauth
 	            </ul>
 	        </div>
@@ -36,16 +37,17 @@
 
  <ul id="dropdown" class="dropdown-content">
 	@auth
-	<li><a class="modal-trigger" href="#logout">Logout</a></li>
+	<li><a class="modal-trigger waves-effect waves-light" href="#logout">Logout</a></li>
 	@else
-    <li><a class="modal-trigger" href="#login">Login</a></li>
-    <li><a class="modal-trigger" href="#signup">Signup</a></li>
+    <li><a class="modal-trigger waves-effect waves-light" href="#login">Login</a></li>
+    <li><a class="modal-trigger waves-effect waves-light" href="#signup">Signup</a></li>
     @endauth
 </ul>
 
 <ul id='menuDropdown' class='dropdown-content'>
-	<li><a href="/profile" class="fsz12">My profile</a></li>
-    <li><a class="modal-trigger fsz12" href="#logout">Logout</a></li>
+	<li><a href="/profile" class="fsz12 waves-effect waves-light">My profile</a></li>
+	<li><a href="/bookmarks" class="fsz12 waves-effect waves-light">My favourites</a></li>
+    <li><a class="modal-trigger fsz12 waves-effect waves-light" href="#logout">Logout</a></li>
 </ul>
 
 <div class="modal" id="signup">
@@ -66,7 +68,7 @@
 				<label for="password">Password</label>
 			</div>
 			<div class="input-field center-align">
-				<button type="submit" class="btn red accent-2 white-text">Submit</button>
+				<button type="submit" class="btn red accent-2 white-text waves-effect waves-light">Submit</button>
 			</div>
 		</form>
 	</div>
@@ -94,7 +96,7 @@
 				</p>
 			</div>
 			<div class="input-field center-align">
-				<button class="btn red accent-2 white-text">Submit</button>
+				<button class="btn red accent-2 white-text waves-effect waves-light">Submit</button>
 			</div>
 		</form>
 	</div>
@@ -110,10 +112,10 @@
 			@csrf
 			<div class="row">
 				<div class="col s6 m6 center-align">
-					<button type="submit" class="btn red accent-2 white-text">Logout</button>
+					<button type="submit" class="btn red accent-2 white-text waves-effect waves-light">Logout</button>
 				</div>
 				<div class="col s6 m6 center-align">
-					<a href="/home" class="btn red accent-2 white-text">Cancel</a>
+					<a href="/home" class="btn red accent-2 white-text waves-effect waves-light">Cancel</a>
 				</div>
 			</div>
 		</form>
@@ -134,7 +136,7 @@
 				<label for="textarea1">What's on your mind?</label>
 			</div>
 			<div class="input-field center-align">
-				<button class="btn red accent-2 white-text"><i class="material-icons right">send</i>Submit</button>
+				<button class="btn red accent-2 white-text waves-effect waves-light"><i class="material-icons right">send</i>Submit</button>
 			</div>
 		</form>
 	</div>

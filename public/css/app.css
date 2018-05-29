@@ -1,9 +1,24 @@
 /*GENERAL*/
+body
+{
+    background-image:url('/img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    opacity: 0.9;       
+}
+
 a
 {
 	text-decoration: none;
 	color: #fff;
 	cursor: pointer;
+}
+
+footer
+{
+	height: 50px;
 }
 
 .container90
@@ -28,4 +43,13 @@ a
 .searchBar
 {
 	padding: 10px !important;
+}
+
+
+
+/*POST*/
+.timestamp
+{
+	font-size: 12px;
+	color: #ccc;
 }

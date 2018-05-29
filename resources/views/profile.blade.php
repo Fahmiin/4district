@@ -5,11 +5,20 @@
 	<div class="row">
 		<div class="col s12 m4">
 			<div class="card">
+				<br>
 				<div class="card-title center-align">Hi {{$user->name}}, how are you today?</div>
 				<div class="card-content">
-					<div class="input-field">
-						<input type="text" name="answer">
+					<div class="row" id="answerTab">
+						<div class="col s9 m9">
+							<div class="input-field">
+								<input type="text" id="answerText">
+							</div>
+						</div>
+						<div class="col s3 m3">
+							<button class="btn waves-effect waves-light red accent-2 white-text" id="answerButton"><i class="material-icons">send</i></button>
+						</div>
 					</div>
+					<div class="center-align"><h5 id="answerInput"></h5></div>
 				</div>
 			</div>
 		</div>
@@ -24,14 +33,16 @@
 						<div class="card-content white-text">
 							<span class="card-title">{{$post->title}}</span>
 							<p>{{$post->post}}</p>
+							<br>
+							<p class="timestamp">{{$post->created_at->diffForHumans()}}</p>
 						</div>
 						<div class="card-action">
 							<a><i class="material-icons black-text">thumb_up</i></a>
 							<a href="#comments{{$post->id}}" class="modal-trigger right">Comments</a>
 						</div>
 						<div class="card-action">
-							<a href="#editPost{{$post->id}}" class="btn red accent-2 white-text left modal-trigger"><i class="material-icons right">edit</i>Edit</a>
-							<a href="#deletePost{{$post->id}}" class="btn red accent-2 white-text right modal-trigger"><i class="material-icons right">delete_forever</i>Delete</a>
+							<a href="#editPost{{$post->id}}" class="btn red accent-2 white-text left modal-trigger waves-effect waves-light"><i class="material-icons right">edit</i>Edit</a>
+							<a href="#deletePost{{$post->id}}" class="btn red accent-2 white-text right modal-trigger waves-effect waves-light"><i class="material-icons right">delete_forever</i>Delete</a>
 						</div>
 					</div>
 				</div>
@@ -53,11 +64,11 @@
 								<label for="title">Edit title</label>
 							</div>
 							<div class="input-field">
-								<textarea name="post" class="materialize-textarea" id="textarea2">{{$post->post}}</textarea>
-								<label for="textarea2">Edit Post</label>
+								<textarea name="post" class="materialize-textarea" id="textarea{{$post->id}}">{{$post->post}}</textarea>
+								<label for="textarea{{$post->id}}">Edit Post</label>
 							</div>
 							<div class="input-field center-align">
-								<button class="btn red accent-2 white-text">Submit</button>
+								<button class="btn red accent-2 white-text waves-effect waves-light">Submit</button>
 							</div>
 						</form>
 					</div>
@@ -76,7 +87,7 @@
 								</form>
 							</div>
 							<div class="col s6 m6 center-align">
-								<a href="/profile" class="btn red accent-2 white-text">Cancel</a>
+								<a href="/profile" class="btn red accent-2 white-text waves-effect waves-light">Cancel</a>
 							</div>
 						</div>
 					</div>
