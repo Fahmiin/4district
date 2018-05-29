@@ -24,6 +24,7 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/post', 'PostController@createPost')->name('createPost');
 Route::post('/post/edit/{id}', 'PostController@editPost')->name('editPost');
 Route::delete('/post/delete/{id}', 'PostController@deletePost')->name('deletePost');
+Route::post('/like', 'PostController@createLike')->name('createLike');
 
 //PROFILE
 Route::get('/profile', 'ProfileController@profilePage')->name('profilePage');

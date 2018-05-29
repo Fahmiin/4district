@@ -24,7 +24,14 @@
 					<p class="timestamp">{{$post->created_at->diffForHumans()}}</p>
 				</div>
 				<div class="card-action">
-					<a><i class="material-icons black-text">thumb_up</i></a>
+					<a data-postid="{{$post->id}}" class="like"><i class="material-icons
+						@auth
+						@foreach($post->likes as $like)
+							{{($like->user_id == $user->id) ? 'red-text' : 'black-text'}}
+						@endforeach
+						@endauth
+						" id="like{{$post->id}}">thumb_up</i>
+						<span class="thumbs-up">{{$post->likes->count()}}</span></a>
 					<a href="#comments{{$post->id}}" class="modal-trigger right">Comments</a>
 				</div>
 			</div>

@@ -25,6 +25,7 @@ $(document).ready(function()
 	{
 		const post_id = $(this).data('postid');
 		e.preventDefault();
+
 		$.ajax(
 		{
 			type: 'POST',
@@ -44,6 +45,34 @@ $(document).ready(function()
 					$(bookmark)
 						.removeClass('white-text')
 						.addClass('black-text');
+				}
+			}
+		});
+	});
+
+	$('.like').on('click', function(e)
+	{
+		const post_id = $(this).data('postid');
+		e.preventDefault();
+
+		$.ajax(
+		{
+			type: 'POST',
+			url: '/like',
+			data: {post_id: post_id},
+			success: function(data)
+			{
+				const like = '#like'+post_id;
+
+				if(data == 1)
+				{
+					$(like)
+						.addClass('red-text');
+				}
+				else
+				{
+					$(like)
+						.removeClass('red-text');
 				}
 			}
 		});

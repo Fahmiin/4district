@@ -6,7 +6,7 @@
 	<hr>
 	<div class="row">
 	@foreach($bookmarks as $bookmark)
-		<div class="col s12 m4">
+		<div class="col s12 m4" id="{{$bookmark->post->id}}">
 			<div class="card blue-grey darken-1">
 				<div class="card-content white-text">
 					<p class="card-title">
@@ -18,7 +18,12 @@
 					<p class="timestamp">{{$bookmark->post->created_at->diffForHumans()}}</p>
 				</div>
 				<div class="card-action">
-					<a><i class="material-icons black-text">thumb_up</i></a>
+					<a data-postid="{{$bookmark->post->id}}" class="like"><i class="material-icons
+						@foreach($bookmark->post->likes as $like)
+							{{($like->user_id == $user->id) ? 'red-text' : 'black-text'}}
+						@endforeach
+						" id="like{{$bookmark->post->id}}">thumb_up</i>
+						<span class="thumbs-up">{{$bookmark->post->likes->count()}}</span></a>
 					<a href="#comments{{$bookmark->post->id}}" class="modal-trigger right">Comments</a>
 				</div>
 			</div>
@@ -32,4 +37,8 @@
 	@endforeach
 	</div>
 </div>
+@endsection
+
+@section('js')
+	<script src="{{asset('js/bookmarks.js')}}"></script>
 @endsection
