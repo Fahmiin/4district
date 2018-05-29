@@ -17,6 +17,8 @@
         
         @include('includes._nav')
 
+        @include('includes._errors')
+
 		@yield('content')
 
     </body>

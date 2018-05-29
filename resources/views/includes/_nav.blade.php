@@ -1,17 +1,36 @@
 <nav class="teal darken-4">
-    <div class="container">
-        <div class="nav-wrapper">
-            <a href="/home" class="brand-logo left"><span class="red-text text-accent-2">4District</span>Connect</a>
-            <a class="dropdown-trigger right hide-on-large-only" href="#" data-target="dropdown"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-            	@auth
-            	<a class="dropdown-trigger" data-target="menu">Welcome, {{$user->name}}</a>
-            	@else
-                <li><a class="modal-trigger" href="#login">Login</a></li>
-                <li><a class="modal-trigger" href="#signup">Signup</a></li>
-                @endauth
-            </ul>
-        </div>
+    <div class="nav-wrapper container90">
+    	<div class="row">
+    		<div class="col s5 m3">
+    			<a href="/home" class="brand-logo left"><span class="red-text text-accent-2">4District</span>Connect</a>
+    		</div>
+	        <div class="col s7 hide-on-large-only">
+	        	@auth
+	            <a class="dropdown-trigger right hide-on-large-only" data-target="menuDropdown">{{$user->name}}</a>
+	            @else
+	            <a class="dropdown-trigger right hide-on-large-only" href="#" data-target="dropdown"><i class="material-icons">menu</i></a>
+	            @endauth
+	        </div>
+	        <div class="col m5">
+	        	<form action="" method="GET">
+	        		<div class="input-field search">
+	        			<input type="search" class="searchBar" placeholder="Find a user or a post" required>
+	        		</div>
+	        	</form>
+	        </div>
+	        <div class="col m4">
+	        	<ul class="right hide-on-med-and-down">
+	            	@auth
+	            	<li><a href="/profile"><i class="material-icons">person</i></a></li>
+	            	<li><a href="#post" class="modal-trigger"><i class="material-icons">create</i></a></li>
+	            	<li><a href="#logout" class="modal-trigger">Logout</a></li>
+	            	@else
+	                <li><a class="modal-trigger" href="#login">Login</a></li>
+	                <li><a class="modal-trigger" href="#signup">Signup</a></li>
+	                @endauth
+	            </ul>
+	        </div>
+	    </div>
     </div>
 </nav>
 
@@ -24,13 +43,14 @@
     @endauth
 </ul>
 
-<ul id='menu' class='dropdown-content'>
-    <li><a class="modal-trigger" href="#logout">Logout</a></li>
+<ul id='menuDropdown' class='dropdown-content'>
+	<li><a href="/profile" class="fsz12">My profile</a></li>
+    <li><a class="modal-trigger fsz12" href="#logout">Logout</a></li>
 </ul>
 
 <div class="modal" id="signup">
 	<div class="modal-content">
-		<h5 class="center-align">Signup</h5>
+		<h4 class="center-align">Signup</h4>
 		<form action="{{route('register')}}" method="POST">
 			@csrf
 			<div class="input-field">
@@ -54,7 +74,7 @@
 
 <div class="modal" id="login">
 	<div class="modal-content">
-		<h5 class="center-align">Login</h5>
+		<h4 class="center-align">Login</h4>
 		<form action="{{route('login')}}" method="POST">
 			@csrf
 			<div class="input-field">
@@ -82,7 +102,10 @@
 
 <div class="modal" id="logout">
 	<div class="modal-content">
-		<h5 class="center-align">Logout</h5>
+		<h4 class="center-align">Logout</h4>
+		<br>
+		<h6 class="center-align">Are you sure? We're sad to see you go</h6>
+		<br>
 		<form action="{{route('logout')}}" method="POST">
 			@csrf
 			<div class="row">
@@ -92,6 +115,26 @@
 				<div class="col s6 m6 center-align">
 					<a href="/home" class="btn red accent-2 white-text">Cancel</a>
 				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="modal" id="post">
+	<div class="modal-content">
+		<h5 class="center-align">Write a new post</h5>
+		<form action="{{route('createPost')}}" method="POST">
+			@csrf
+			<div class="input-field">
+				<input type="text" name="title" required>
+				<label for="title">Title</label>
+			</div>
+			<div class="input-field">
+				<textarea name="post" class="materialize-textarea" id="textarea1"></textarea>
+				<label for="textarea1">What's on your mind?</label>
+			</div>
+			<div class="input-field center-align">
+				<button class="btn red accent-2 white-text"><i class="material-icons right">send</i>Submit</button>
 			</div>
 		</form>
 	</div>

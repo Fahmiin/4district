@@ -3,4 +3,29 @@ a
 {
 	text-decoration: none;
 	color: #fff;
+	cursor: pointer;
+}
+
+.container90
+{
+	width: 90%;
+	margin: auto;
+}
+
+
+
+/*NAVBAR*/
+.fsz12
+{
+	font-size: 12px !important;
+}
+
+.search
+{
+	margin-top: 10px !important;
+}
+
+.searchBar
+{
+	padding: 10px !important;
 }
