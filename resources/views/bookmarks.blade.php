@@ -5,7 +5,7 @@
 	<h5 class="center-align white-text">Your bookmarked posts</h5>
 	<hr>
 	<div class="row">
-	@foreach($bookmarks as $bookmark)
+	@foreach($bookmarks->sortByDesc('id') as $bookmark)
 		<div class="col s12 m4" id="{{$bookmark->post->id}}">
 			<div class="card blue-grey darken-1">
 				<div class="card-content white-text">

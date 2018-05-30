@@ -27,7 +27,7 @@
 				<li class="collection-item"><i class="material-icons left">content_paste</i>Recent posts</li>
 			</ul>
 			<div class="row">
-				@foreach($user->posts as $post)
+				@foreach($user->posts->sortByDesc('id') as $post)
 				<div class="col s12 m6">
 					<div class="card blue-grey darken-1">
 						<div class="card-content white-text">

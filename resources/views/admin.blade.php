@@ -14,6 +14,27 @@
 					</ol>
 				</div>
 			</div>
+			<div class="card">
+				<div class="card-content">
+					<h5>Post to Admin Writes</h5>
+					<br>
+					<form action="{{route('adminWrites')}}" method="POST">
+						@csrf
+						<div class="input-field">
+							<input type="text" name="title" required>
+							<label for="title">Choose a post title</label>
+						</div>
+						<div class="input-field">
+							<p>Write for our readers</p>
+							<br>
+							<textarea name="body" id="article-ckeditor" required></textarea>
+						</div>
+						<div class="input-field">
+							<button class="btn red accent-2 white-text waves-effect waves-light"><i class="material-icons right">send</i>Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 		<div class="col s12 m4">
 			<div class="card blue-grey darken-1">
@@ -33,4 +54,11 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('js')
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('article-ckeditor');
+</script>
 @endsection

@@ -14,6 +14,7 @@
 	        </div>
 	        <div class="col m9">
 	        	<ul class="right hide-on-med-and-down">
+	        		<li><a href="/adminwrites" class="waves-effect waves-light left"><i class="material-icons">library_books</i></a></li>
 	            	@auth
 	            	<li><a href="/profile" class="waves-effect waves-light"><i class="material-icons right">account_circle</i>{{$user->name}}</a></li>
 	            	<li><a href="#post" class="modal-trigger waves-effect waves-light"><i class="material-icons">create</i></a></li>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container90">
 	<div class="row">
-		@foreach($posts as $post)
+		@foreach($posts->sortByDesc('id') as $post)
 		<div class="col s12 m4">
 			<div class="card blue-grey darken-1">
 				<div class="card-content white-text">

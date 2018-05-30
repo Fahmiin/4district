@@ -43,3 +43,7 @@ Route::delete('/reply/delete/{id}', 'AskController@deleteReply')->name('deleteRe
 
 //ADMIN
 Route::get('/admin', 'AdminController@showAdmin')->name('admin');
+Route::get('/adminwrites', 'AdminPostController@showPosts')->name('adminPosts');
+Route::post('/writes', 'AdminPostController@createPost')->name('adminWrites');
+Route::post('/writes/edit/{id}', 'AdminPostController@editPost')->name('adminEdit');
+Route::delete('/writes/delete/{id}', 'AdminPostController@deletePost')->name('adminDelete');

@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Reply');
     }
+
+    public function adminwrites()
+    {
+        return $this->hasMany('App\AdminPost');
+    }
 }

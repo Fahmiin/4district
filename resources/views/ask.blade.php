@@ -36,7 +36,7 @@
 		@endauth
 	</div>
 	<div class="row">
-		@foreach($asks as $ask)
+		@foreach($asks->sortByDesc('id') as $ask)
 			<div class="col s12 m4">
 				<div class="card blue-grey darken-1">
 					<div class="card-content white-text">	
@@ -70,9 +70,11 @@
 								<div class="col s2 m2">
 									<p class="orange-text">Admin replied:</p>
 								</div>
-								<div class="col s8 m">
+								<div class="col s8 m8">
 									<p>{{$reply->reply}}</p>
 								</div>
+								@auth
+								@admin
 								<div class="col s2 m2">
 									<form action="{{route('deleteReply', ['id' => $reply->id])}}" method="POST">
 										@csrf
@@ -82,6 +84,8 @@
 										</div>
 									</form>
 								</div>
+								@endadmin
+								@endauth
 							</div>
 							@endif
 
@@ -127,40 +131,40 @@
 			</div>
 
 			<div class="modal" id="editQuestion{{$ask->id}}">
-					<div class="modal-content">
-						<h5 class="center-align">Edit question</h5>
-						<br>
-						<form action="{{route('editQuestion', ['id' => $ask->id])}}" method="POST">
-							@csrf
-							<div class="input-field">
-								<textarea name="post" class="materialize-textarea" id="textarea{{$ask->id}}">{{$ask->question}}</textarea>
-								<label for="textarea{{$ask->id}}">Edit Question</label>
-							</div>
-							<div class="input-field center-align">
-								<button class="btn red accent-2 white-text waves-effect waves-light">Submit</button>
-							</div>
-						</form>
-					</div>
+				<div class="modal-content">
+					<h5 class="center-align">Edit question</h5>
+					<br>
+					<form action="{{route('editQuestion', ['id' => $ask->id])}}" method="POST">
+						@csrf
+						<div class="input-field">
+							<textarea name="post" class="materialize-textarea" id="textarea{{$ask->id}}">{{$ask->question}}</textarea>
+							<label for="textarea{{$ask->id}}">Edit Question</label>
+						</div>
+						<div class="input-field center-align">
+							<button class="btn red accent-2 white-text waves-effect waves-light">Submit</button>
+						</div>
+					</form>
 				</div>
+			</div>
 
-				<div class="modal" id="deleteQuestion{{$ask->id}}">
-					<div class="modal-content">
-						<h5 class="center-align">Are you sure you want to delete this question?</h5>
-						<br>
-						<div class="row">
-							<div class="col s6 m6 center-align">
-								<form action="{{route('deleteQuestion', ['id' => $ask->id])}}" method="POST">
-									@csrf
-									@method('DELETE')
-									<button class="btn red accent-2 white-text">Delete</button>
-								</form>
-							</div>
-							<div class="col s6 m6 center-align">
-								<a href="/ask" class="btn red accent-2 white-text waves-effect waves-light">Cancel</a>
-							</div>
+			<div class="modal" id="deleteQuestion{{$ask->id}}">
+				<div class="modal-content">
+					<h5 class="center-align">Are you sure you want to delete this question?</h5>
+					<br>
+					<div class="row">
+						<div class="col s6 m6 center-align">
+							<form action="{{route('deleteQuestion', ['id' => $ask->id])}}" method="POST">
+								@csrf
+								@method('DELETE')
+								<button class="btn red accent-2 white-text">Delete</button>
+							</form>
+						</div>
+						<div class="col s6 m6 center-align">
+							<a href="/ask" class="btn red accent-2 white-text waves-effect waves-light">Cancel</a>
 						</div>
 					</div>
 				</div>
+			</div>
 		@endforeach
 	</div>
 </div>
