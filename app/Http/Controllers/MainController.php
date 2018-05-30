@@ -16,12 +16,10 @@ class MainController extends Controller
     	{
     		$user = Auth::user();
             $posts = Post::all();
-            $admin = Role::where('user_id', $user->id)->first();
 
     		return view('main')
                 ->with('user', $user)
-                ->with('posts', $posts)
-                ->with('admin', $admin);
+                ->with('posts', $posts);
     	}
 
     	$user = User::all();

@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Role');
     }
+
+    public function replies()
+    {
+        return $this->hasMany('App\Reply');
+    }
 }

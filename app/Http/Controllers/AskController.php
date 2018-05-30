@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Ask;
 use App\Role;
+use App\Reply;
 use Auth;
 
 class AskController extends Controller
@@ -16,12 +17,10 @@ class AskController extends Controller
 		{
 			$user = Auth::user();
 			$asks = Ask::all();
-            $admin = Role::where('user_id', $user->id)->first();
 
 			return view('ask')
 				->with('user', $user)
-				->with('asks', $asks)
-                ->with('admin', $admin);
+				->with('asks', $asks);
 		}
 
 		$asks = Ask::all();
@@ -56,8 +55,40 @@ class AskController extends Controller
     public function deleteQuestion($id)
     {
     	$ask = Ask::find($id);
+        $replies = Reply::where('ask_id', $id)->get();
+
+        foreach($replies as $reply)
+        {
+            $reply->delete();
+        }
+
     	$ask->delete();
 
     	return back();
+    }
+
+    public function createReply(Request $request, $id)
+    {
+        $request->validate(
+        [
+            'reply' => 'required'
+        ]);
+
+        $user = Auth::user();
+        $question = Ask::find($id);
+        $reply = new Reply;
+        $reply->ask_id = $question->id;
+        $reply->reply = $request->input('reply');
+        $user->replies()->save($reply);
+
+        return back();
+    }
+
+    public function deleteReply($id)
+    {
+        $reply = Reply::find($id);
+        $reply->delete();
+
+        return back();
     }
 }

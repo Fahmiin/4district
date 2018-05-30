@@ -13,10 +13,8 @@ class ProfileController extends Controller
    public function profilePage()
    {
    		$user = Auth::user();
-   		$admin = Role::where('user_id', $user->id)->first();
 
    		return view('profile')
-   			->with('user', $user)
-   			->with('admin', $admin);
+   			->with('user', $user);
    }
 }

@@ -18,9 +18,9 @@
 	            	<li><a href="/profile" class="waves-effect waves-light"><i class="material-icons right">account_circle</i>{{$user->name}}</a></li>
 	            	<li><a href="#post" class="modal-trigger waves-effect waves-light"><i class="material-icons">create</i></a></li>
 	            	<li><a href="/bookmarks" class="waves-effect waves-light"><i class="material-icons">collections_bookmark</i></a></li>
-	            	@if($admin)
+	            	@admin
 						<li><a href="/admin" class="waves-effect waves-light"><i class="material-icons orange-text">accessibility</i></a></li>
-					@endif
+					@endadmin
 	            	<li><a href="#logout" class="modal-trigger waves-effect waves-light">Logout</a></li>
 	            	@else
 	                <li><a class="modal-trigger waves-effect waves-light" href="#login">Login</a></li>
