@@ -49,10 +49,16 @@ class PostController extends Controller
     {
     	$post = Post::find($id);
         $bookmarks = Bookmark::where('post_id', $id)->get();
+        $likes = Like::where('post_id', $id)->get();
 
         foreach($bookmarks as $bookmark)
         {
             $bookmark->delete();
+        }
+
+        foreach($likes as $like)
+        {
+            $like->delete();
         }
 
     	$post->delete();

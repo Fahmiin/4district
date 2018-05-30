@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Bookmark;
+use App\Role;
 use Auth;
 
 class BookmarkController extends Controller
@@ -13,10 +14,12 @@ class BookmarkController extends Controller
     public function bookmarksPage()
     {
         $user = Auth::user();
+        $admin = Role::where('user_id', $user->id)->first();
         $bookmarks = Bookmark::where('user_id', $user->id)->get();
 
         return view('bookmarks')
             ->with('user', $user)
+            ->with('admin', $admin)
             ->with('bookmarks', $bookmarks);
     }
 

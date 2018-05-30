@@ -1,11 +1,11 @@
 <nav class="teal darken-4">
     <div class="nav-wrapper container90">
     	<div class="row">
-    		<div class="col s5 m3">
+    		<div class="col s9 m3">
     			<a href="/home" class="brand-logo left"><span class="red-text text-accent-2">4District</span>Connect</a>
     			<a href="/ask" class="waves-effect waves-light right"><i class="material-icons">chat_bubble</i></a></li>
     		</div>
-	        <div class="col s7 hide-on-large-only">
+	        <div class="col s3 hide-on-large-only">
 	        	@auth
 	            <a class="dropdown-trigger right hide-on-large-only waves-effect waves-light" data-target="menuDropdown">{{$user->name}}</a>
 	            @else
@@ -15,9 +15,12 @@
 	        <div class="col m9">
 	        	<ul class="right hide-on-med-and-down">
 	            	@auth
-	            	<li><a href="/profile" class="waves-effect waves-light"><i class="material-icons right">person</i>{{$user->name}}</a></li>
+	            	<li><a href="/profile" class="waves-effect waves-light"><i class="material-icons right">account_circle</i>{{$user->name}}</a></li>
 	            	<li><a href="#post" class="modal-trigger waves-effect waves-light"><i class="material-icons">create</i></a></li>
 	            	<li><a href="/bookmarks" class="waves-effect waves-light"><i class="material-icons">collections_bookmark</i></a></li>
+	            	@if($admin)
+						<li><a href="/admin" class="waves-effect waves-light"><i class="material-icons orange-text">accessibility</i></a></li>
+					@endif
 	            	<li><a href="#logout" class="modal-trigger waves-effect waves-light">Logout</a></li>
 	            	@else
 	                <li><a class="modal-trigger waves-effect waves-light" href="#login">Login</a></li>

@@ -36,3 +36,8 @@ Route::post('/bookmark', 'BookmarkController@createBookmark')->name('createBookm
 //ASK
 Route::get('/ask', 'AskController@showAsk')->name('ask');
 Route::post('/question', 'AskController@createQuestion')->name('createQuestion');
+Route::post('/question/edit/{id}', 'AskController@editQuestion')->name('editQuestion');
+Route::delete('/question/delete/{id}', 'AskController@deleteQuestion')->name('deleteQuestion');
+
+//ADMIN
+Route::get('/admin', 'AdminController@showAdmin')->name('admin');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Post;
+use App\Role;
 use Auth;
 
 class MainController extends Controller
@@ -15,10 +16,12 @@ class MainController extends Controller
     	{
     		$user = Auth::user();
             $posts = Post::all();
+            $admin = Role::where('user_id', $user->id)->first();
 
     		return view('main')
                 ->with('user', $user)
-                ->with('posts', $posts);
+                ->with('posts', $posts)
+                ->with('admin', $admin);
     	}
 
     	$user = User::all();
