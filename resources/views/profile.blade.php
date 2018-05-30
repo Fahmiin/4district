@@ -33,23 +33,22 @@
 						<div class="card-content white-text">
 							<span class="card-title">{{$post->title}}</span>
 							<p>{{$post->post}}</p>
-							<br>
-							<p class="timestamp">{{$post->created_at->diffForHumans()}}</p>
 						</div>
 						<div class="card-action">
-							<a><i class="material-icons black-text">thumb_up</i></a>
-							<a href="#comments{{$post->id}}" class="modal-trigger right">Comments</a>
+							<a data-postid="{{$post->id}}" class="like"><i class="material-icons
+								@auth
+								@foreach($post->likes as $like)
+									{{($like->user_id == $user->id) ? 'red-text' : ''}}
+								@endforeach
+								@endauth
+								" id="like{{$post->id}}">thumb_up</i>
+							<span class="thumbs-up">{{$post->likes->count()}}</span></a>
+							<p class="timestamp right">{{$post->created_at->diffForHumans()}}</p>
 						</div>
 						<div class="card-action">
 							<a href="#editPost{{$post->id}}" class="btn red accent-2 white-text left modal-trigger waves-effect waves-light"><i class="material-icons right">edit</i>Edit</a>
 							<a href="#deletePost{{$post->id}}" class="btn red accent-2 white-text right modal-trigger waves-effect waves-light"><i class="material-icons right">delete_forever</i>Delete</a>
 						</div>
-					</div>
-				</div>
-
-				<div class="modal" id="comments{{$post->id}}">
-					<div class="modal-content">
-						<h5 class="center-align">{{$post->title}} comments</h5>
 					</div>
 				</div>
 

@@ -20,26 +20,18 @@
 						{{$post->title}}
 					</p>
 					<p>{{$post->post}}</p>
-					<br>
-					<p class="timestamp">{{$post->created_at->diffForHumans()}}</p>
 				</div>
 				<div class="card-action">
 					<a data-postid="{{$post->id}}" class="like"><i class="material-icons
 						@auth
 						@foreach($post->likes as $like)
-							{{($like->user_id == $user->id) ? 'red-text' : 'black-text'}}
+							{{($like->user_id == $user->id) ? 'red-text' : ''}}
 						@endforeach
 						@endauth
 						" id="like{{$post->id}}">thumb_up</i>
-						<span class="thumbs-up">{{$post->likes->count()}}</span></a>
-					<a href="#comments{{$post->id}}" class="modal-trigger right">Comments</a>
+					<span class="thumbs-up">{{$post->likes->count()}}</span></a>
+					<p class="timestamp right">{{$post->created_at->diffForHumans()}}</p>
 				</div>
-			</div>
-		</div>
-
-		<div class="modal" id="comments{{$post->id}}">
-			<div class="modal-content">
-				<h5 class="center-align">{{$post->title}} comments</h5>
 			</div>
 		</div>
 		@endforeach

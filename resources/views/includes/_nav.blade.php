@@ -3,6 +3,7 @@
     	<div class="row">
     		<div class="col s5 m3">
     			<a href="/home" class="brand-logo left"><span class="red-text text-accent-2">4District</span>Connect</a>
+    			<a href="/ask" class="waves-effect waves-light right"><i class="material-icons">chat_bubble</i></a></li>
     		</div>
 	        <div class="col s7 hide-on-large-only">
 	        	@auth
@@ -11,14 +12,7 @@
 	            <a class="dropdown-trigger right hide-on-large-only waves-effect waves-light" data-target="dropdown"><i class="material-icons">menu</i></a>
 	            @endauth
 	        </div>
-	        <div class="col m5 hide-on-med-and-down">
-	        	<form action="" method="GET">
-	        		<div class="input-field search">
-	        			<input type="search" class="searchBar" placeholder="Find a user or a post" required>
-	        		</div>
-	        	</form>
-	        </div>
-	        <div class="col m4">
+	        <div class="col m9">
 	        	<ul class="right hide-on-med-and-down">
 	            	@auth
 	            	<li><a href="/profile" class="waves-effect waves-light"><i class="material-icons right">person</i>{{$user->name}}</a></li>
@@ -60,7 +54,7 @@
 				<label for="name">Username</label>
 			</div>
 			<div class="input-field">
-				<input type="email" name="email" required>
+				<input type="email" name="email" value="{{Request::old('email')}}" required>
 				<label for="email">Email</label>
 			</div>
 			<div class="input-field">

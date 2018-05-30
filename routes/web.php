@@ -11,11 +11,11 @@
 |
 */
 
-//Landing page
+//LANDING PAGE
 Route::view('/', 'index');
 Route::get('/home', 'MainController@homePage')->name('home');
 
-//Auth
+//AUTH
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -32,3 +32,7 @@ Route::get('/profile', 'ProfileController@profilePage')->name('profilePage');
 //BOOKMARK
 Route::get('/bookmarks', 'BookmarkController@bookmarksPage')->name('bookmarksPage');
 Route::post('/bookmark', 'BookmarkController@createBookmark')->name('createBookmark');
+
+//ASK
+Route::get('/ask', 'AskController@showAsk')->name('ask');
+Route::post('/question', 'AskController@createQuestion')->name('createQuestion');
