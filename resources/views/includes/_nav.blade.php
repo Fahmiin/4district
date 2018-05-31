@@ -1,11 +1,11 @@
 <nav class="teal darken-4">
     <div class="nav-wrapper container90">
     	<div class="row">
-    		<div class="col s9 m3">
+    		<div class="col s10 m3">
     			<a href="/home" class="brand-logo left"><span class="red-text text-accent-2">4District</span>Connect</a>
     			<a href="/ask" class="waves-effect waves-light right"><i class="material-icons">chat_bubble</i></a></li>
     		</div>
-	        <div class="col s3 hide-on-large-only">
+	        <div class="col s2 hide-on-large-only">
 	        	@auth
 	            <a class="dropdown-trigger right hide-on-large-only waves-effect waves-light" data-target="menuDropdown">{{$user->name}}</a>
 	            @else

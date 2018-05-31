@@ -27,10 +27,48 @@ footer
 	margin: auto;
 }
 
+.container40
+{
+	width: 40%;
+	margin: auto;
+}
+
 .hidden
 {
 	display: none;
 }
+
+
+
+/*LANDING PAGE*/
+.landing
+{
+	height: 500px;
+	border-radius: 10px;
+}
+
+.landing h1
+{
+	padding: 20px;
+}
+
+.content
+{
+	padding: 20px;
+}
+
+.footnote
+{
+	padding: 20px;
+	font-size: 15px;
+	color: #ccc;
+}
+
+.landing a:hover
+{
+	color: yellow;
+}
+
 
 
 

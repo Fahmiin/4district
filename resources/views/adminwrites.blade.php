@@ -4,6 +4,7 @@
 <div class="container90">
 	<h5 class="white-text">Stories from our Admins</h5>
 	<hr>
+	@if(count($adminposts))
 	@foreach($adminposts->sortByDesc('id') as $post)
 	<div class="card">
 		<div class="card-content">
@@ -61,6 +62,9 @@
 		</div>
 	</div>
 	@endforeach
+	@else
+	<h4 class="center-align white-text">Oops! No stories yet</h4>
+	@endif
 </div>
 @endsection
 

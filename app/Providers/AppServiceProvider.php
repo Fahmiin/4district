@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Role;
 use Blade;
+use View;
 use Auth;
 
 class AppServiceProvider extends ServiceProvider
@@ -18,6 +19,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        View::composer(['*'], function($view)
+        {
+            $user = Auth::user();
+            $view->with('user', $user);
+        });
 
         Blade::if('admin', function()
         {

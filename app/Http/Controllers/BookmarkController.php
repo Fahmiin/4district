@@ -16,9 +16,7 @@ class BookmarkController extends Controller
         $user = Auth::user();
         $bookmarks = Bookmark::where('user_id', $user->id)->get();
 
-        return view('bookmarks')
-            ->with('user', $user)
-            ->with('bookmarks', $bookmarks);
+        return view('bookmarks')->with('bookmarks', $bookmarks);
     }
 
     public function createBookmark(Request $request)

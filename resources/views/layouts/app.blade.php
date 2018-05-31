@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="{{asset('/css/materialize.min.css')}}"  media="screen,projection"/>
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('4district.ico') }}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
 
         @yield('css')

@@ -12,20 +12,9 @@ class AdminPostController extends Controller
 {
 	public function showPosts()
 	{
-		if(Auth::check())
-		{
-			$user = Auth::user();
-			$adminposts = AdminPost::all();
-
-			return view('adminwrites')
-					->with('user', $user)
-					->with('adminposts', $adminposts);
-		}
-
 		$adminposts = AdminPost::all();
 
-		return view('adminwrites')
-				->with('adminposts', $adminposts);
+		return view('adminwrites')->with('adminposts', $adminposts);
 	}
 
     public function createPost(Request $request)

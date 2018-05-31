@@ -12,21 +12,8 @@ class MainController extends Controller
 {
     public function homePage()
     {
-    	if(Auth::user())
-    	{
-    		$user = Auth::user();
-            $posts = Post::all();
-
-    		return view('main')
-                ->with('user', $user)
-                ->with('posts', $posts);
-    	}
-
-    	$user = User::all();
         $posts = Post::all();
 
-    	return view('main')
-            ->with('user', $user)
-            ->with('posts', $posts);
+		return view('main')->with('posts', $posts);
     }
 }

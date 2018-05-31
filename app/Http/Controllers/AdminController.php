@@ -11,20 +11,15 @@ class AdminController extends Controller
 {
     public function showAdmin()
     {
-    	$user = Auth::user();
+        $user = Auth::user();
     	$admin = Role::where('user_id', $user->id)->first();
 
     	//Check for admins status, otherwise, redirect to home
     	if ($admin)
     	{
-    		$user = Auth::user();
-            $admin = Role::where('user_id', $user->id)->first();
             $roles = Role::all();
 
-	    	return view('admin')
-	    		->with('user', $user)
-	    		->with('admin', $admin)
-                ->with('roles', $roles);
+	    	return view('admin')->with('roles', $roles);
     	}
 
     	return redirect('home');

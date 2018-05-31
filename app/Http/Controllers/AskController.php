@@ -13,20 +13,9 @@ class AskController extends Controller
 {
     public function showAsk()
     {
-		if(Auth::check())
-		{
-			$user = Auth::user();
-			$asks = Ask::all();
-
-			return view('ask')
-				->with('user', $user)
-				->with('asks', $asks);
-		}
-
 		$asks = Ask::all();
 
-		return view('ask')
-			->with('asks', $asks);
+		return view('ask')->with('asks', $asks);
     }
 
     public function createQuestion(Request $request)
